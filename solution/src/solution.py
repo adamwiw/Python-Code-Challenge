@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 import csv
 import sys
-
+import time
 from solution.solution import Solution
 
 if __name__ == "__main__":
+    start_time = time.time()
     if(len(sys.argv)==3):
         solution = Solution(sys.argv[1])
         
@@ -26,3 +27,5 @@ if __name__ == "__main__":
                     except ValueError as e:
                         e.args = ("Invalid request record:", line)
                         raise
+    
+    print("--- %s seconds ---" % (time.time() - start_time))
