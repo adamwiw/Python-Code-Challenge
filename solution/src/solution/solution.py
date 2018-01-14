@@ -12,8 +12,8 @@ class Solution:
         self.__sortPorts()
 
     def __appendVLAN(self, vlan):
-        port = Port(int(vlan["device_id"]), int(vlan["vlan_id"]))
-        if int(vlan["primary_port"]): 
+        port = Port(vlan["device_id"], vlan["vlan_id"])
+        if vlan["primary_port"]:
             self.__primaryPorts.append(port)
         else:
             self.__secondaryPorts.append(port)
