@@ -10,7 +10,7 @@ class Solution:
         self.__loadVLANs(VLANsLocation)
         self.__populateIntersection()
         self.__sortPorts()
-
+        
     def __appendVLAN(self, vlan):
         port = Port(vlan["device_id"], vlan["vlan_id"])
         if vlan["primary_port"]:
@@ -46,7 +46,7 @@ class Solution:
             output = (self.__portsIntersection[0].deviceId, self.__portsIntersection[0].vlanId)
                         
             self.__primaryPorts.pop(primaryPortIndex)
-            self.__secondaryPorts.pop(secondaryPortIndex)
+            del self.__secondaryPorts[0:secondaryPortIndex]
             self.__portsIntersection.pop(0)
         else:
             primaryPort = self.__primaryPorts.pop(0)   
